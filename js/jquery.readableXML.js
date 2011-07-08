@@ -1,5 +1,5 @@
 /**
- * textSelect jQuery Plug-in
+ * Readable XML jQuery Plug-in
  * 
  * Copyright (c) 2011, Simon Chong <simons.mail@gmail.com>
  * 
