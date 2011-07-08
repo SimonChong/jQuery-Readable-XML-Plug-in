@@ -1,0 +1,106 @@
+/**
+ * textSelect jQuery Plug-in CSS
+ * 
+ * Copyright (c) 2011, Simon Chong <simons.mail@gmail.com>
+ * 
+ * Licensed under The MIT License which can be obtained from <http://www.opensource.org>
+ * 
+ */
+ .r-main {
+	width: 100%;
+	margin: 20px auto;
+	font-size: 11px;
+	font-family: Consolas, Menlo, Monaco, Lucida Console, Liberation Mono,
+		DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace,
+		serif;
+}
+
+.r-mainPad {
+	padding: 10px 10px 10px 16px;
+}
+
+.r-oTag {
+	cursor: pointer;
+	margin-left: -0px;
+}
+
+.r-oTag,.r-cTag {
+	color: #881280;
+	word-wrap: break-word;
+}
+
+.r-cTag {
+	padding-left: 0px;
+}
+
+.r-content {
+	word-wrap: break-word;
+}
+
+.r-close .r-content,.r-close .r-cTag {
+	display: none;
+}
+
+.r-element {
+	line-height: 16px;
+	word-wrap: break-word;
+	margin-left: 16px;
+}
+
+.r-attr {
+	color: #994500;
+}
+
+.r-attrVal {
+	color: #1A1AA6;
+}
+
+.r-loose {
+	margin-left: 16px;
+	color: black;
+}
+
+.r-new {
+	padding-left: 0px;
+}
+
+.r-minus {
+	display: block;
+	background-image: url(../images/jquery.readableXML.png);
+	background-repeat: no-repeat;
+	text-indent: -99999px;
+	overflow: hidden;
+	width: 16px;
+	height: 16px;
+	cursor: pointer;
+	background-position: -16px 5px;
+	float: left;
+}
+
+.r-close .r-minus {
+	background-position: 0px 5px;
+}
+
+.r-cdoTag,.r-cdcTag {
+	color: #C80000;
+}
+
+/*
+.r-cdata div,.r-cdata span {
+	display: inline;
+	padding: 0;
+	background: none;
+	float: none;
+	margin: 0;
+	text-indent: 0;
+	word-wrap: break-word;
+}*/
+.
+r-cdata {
+	clear: both;
+	padding-left: 20px;
+}
+
+.r-clear {
+	clear: both;
+}

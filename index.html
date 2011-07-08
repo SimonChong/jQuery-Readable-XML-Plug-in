@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<!-- 
+/**
+ * textSelect jQuery Plug-in CSS
+ * 
+ * Copyright (c) 2011, Simon Chong <simons.mail@gmail.com>
+ * 
+ * Licensed under The MIT License which can be obtained from <http://www.opensource.org>
+ * 
+ */
+ -->
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>readableXML jQuery plugin</title>
+<link rel="stylesheet" type="text/css" href="css/jquery.readableXML.css" />
+<script src="js/jquery-1.4.4.js"></script>
+<script src="js/jquery.readableXML.js"></script>
+<script>
+	$(function () {
+
+		var xml0 = "<test><car attr='test'><passenger>John</passenger><passenger>Jane</passenger>test\ntest</car></test>";
+		$('#exampleDiv1').readableXML(xml0);
+
+		var xml1 = "<test><element1>contents 1</element1><element1>contents 2</element1></test>";
+		$('#exampleDiv2').readableXML(xml1, {
+			onOpen : function ($element) {
+				$('#resultsDiv2').text("You opened :" + $element.text());
+			},
+			onClose : function ($element) {
+				$('#resultsDiv2').text("You closed :" + $element.text());
+			}
+		});
+
+		$.get('engadget_rss.xml', function (data) {
+			$('#exampleDiv3').readableXML(data, {
+				collapsed : true
+			});
+		}, 'text');
+	});
+</script>
+<style type="text/css">
+body {
+	width: 600px;
+	margin: 0 auto;
+}
+
+.code p,.style1,.style2,.style3,.style4 {
+	font-size: 11.5px;
+	font-family: Courier New;
+	color: #7F0055;
+	line-height: normal;
+	margin: 0;
+	padding: 3px 0;
+}
+
+.style2 {
+	color: black;
+}
+
+.style3 {
+	color: #2A00FF;
+}
+
+.style4 {
+	color: #7F0055;
+}
+
+.section {
+	border: 1px solid gray;
+	padding: 20px 20px;
+	margin: 20px auto;
+	width: 500px;
+}
+</style>
+</head>
+<body>
+	<div class="doco">
+		<h1>jQuery 'Readable XML' Plug-in</h1>
+		<p>
+			<b>Description:</b> A jQuery Plugin that converts large blocks of unreadable XML to readable and
+			collapsable XML for display on a web page.
+		</p>
+	</div>
+
+	<div>
+		<h2>
+			Download
+			</h3>
+			<p>Download the following files:</p>
+			<ul>
+				<li>Latest version of <a href="http://jquery.com/" target="_blank">jQuery</a></li>
+				<li>The Plugin: <a href="js/jquery.readableXML.js" target="_blank">jquery.readableXML.js</a>
+					file</li>
+				<li>The Styles: <a href="css/jquery.readableXML.css" target="_blank">jquery.readableXML.css</a>
+					file</li>
+				<li>The Images: <a href="images/jquery.readableXML.png" target="_blank">jquery.readableXML.png</a>
+					file in the images folder (referenced by the css)</li>
+			</ul>
+
+			<h2>
+				How To Use
+				</h3>
+				<p>Place the files in your website and reference them in your HTML head element. It should
+					look like the following in your HTML head element.</p>
+				<div>
+					&lt;link rel="stylesheet" type="text/css" href="css/jquery.readableXML.css" /&gt;<br />&lt;script
+					src="js/jquery-1.4.4.js"&gt;&lt;/script&gt;<br />&lt;script
+					src="js/jquery.readableXML.js"&gt;&lt;/script&gt;<br /> <br />
+				</div>
+	</div>
+	<h2>Examples</h2>
+	<p>After the document is ready execute the following examples.</p>
+	<div class="section">
+
+		<div class="example">
+			<h2>Simple Example:</h2>
+			<div class="description">
+				<b>Code:</b>
+			</div>
+			<div class="code">
+				<p>&nbsp;</p>
+				<p>
+					<b><span class="style1">var</span> </b> <span class="style2">xml0 =</span> <span class="style3">"&lt;test&gt;&lt;car
+						attr='test'&gt;&lt;passenger&gt;John&lt;/passenger&gt;&lt;passenger&gt;Jane&lt;/passenger&gt;test\ntest&lt;/car&gt;&lt;/test&gt;"</span><span
+						class="style2">;</span>
+				</p>
+				<p>&nbsp;</p>
+				<p>
+					<span class="style2">$(</span><span class="style3">'#exampleDiv1'</span><span class="style2">).readableXML(xml0);</span>
+				</p>
+				<p>&nbsp;</p>
+			</div>
+			<h3 class="title">Result:</h3>
+			<div id="exampleDiv1"></div>
+		</div>
+	</div>
+	<div class="section">
+		<div class="example">
+			<h2>Example with Collapse Events:</h2>
+			<div class="description">
+				<b>Code:</b>
+			</div>
+			<div class="code">
+				<p>
+					<b><span class="style1">var</span> </b> <span class="style2">xml1 =</span> <span class="style3">"&lt;test&gt;&lt;element1&gt;contents
+						1&lt;/element1&gt;&lt;element1&gt;contents 2&lt;/element1&gt;&lt;/test&gt;"</span><span
+						class="style2">;</span>
+				</p>
+				<p>&nbsp;</p>
+				<p>
+					<span class="style2">$(</span><span class="style3">'#exampleDiv2'</span><span class="style2">).readableXML(xml1,
+						{</span>
+				</p>
+				<p>
+					<span class="style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; onOpen :</span> <b><span
+						style='font-size: 9.0pt; font-family: "Courier New"; color: #7F0055'>function</span> </b> <span
+						class="style2">($element) {</span>
+				</p>
+				<p>
+					<span class="style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						$(</span><span class="style3">'#resultsDiv2'</span><span class="style2">).text(</span><span
+						class="style3">"You opened :"</span> <span class="style2">+ $element.text());</span>
+				</p>
+				<p>
+					<span class="style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; },</span>
+				</p>
+				<p>
+					<span class="style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; onClose :</span> <b><span
+						class="style4">function</span> </b> <span class="style2">($element) {</span>
+				</p>
+				<p>
+					<span class="style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						$(</span><span class="style3">'#resultsDiv2'</span><span class="style2">).text(</span><span
+						class="style3">"You closed :"</span> <span class="style2">+ $element.text());</span>
+				</p>
+				<p>
+					<span class="style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }</span>
+				</p>
+				<p>
+					<span class="style2">});</span>
+				</p>
+				<p>&nbsp;</p>
+			</div>
+			<h3 class="title">Result:</h3>
+			<div id="resultsDiv2" style="height: 20px; color: #C80000; font-weight: bold; text-align: center"></div>
+			<div id="exampleDiv2"></div>
+		</div>
+	</div>
+	<div class="section">
+
+		<div class="example">
+			<h2>Larger Example:</h2>
+			<div class="description">
+				<b>Code:</b>
+			</div>
+			<div class="code">
+				&nbsp;
+				</p>
+				<p>
+					<span class="style2">$.get(</span><span class="style3">'engadget_rss.xml'</span><span
+						class="style2">,</span> <b><span class="style4">function</span> </b> <span class="style2">(data)
+						{</span>
+				</p>
+				<p>
+					<span class="style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $(</span><span class="style3">'#exampleDiv3'</span><span
+						class="style2">).readableXML(data, {</span>
+				</p>
+				<p>
+					<span class="style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						collapsed :</span> <b><span class="style4">true</span> </b>
+				</p>
+				<p>
+					<span class="style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; });</span>
+				</p>
+				<p>
+					<span class="style2">},</span> <span class="style3">'text'</span><span class="style2">);</span>
+				</p>
+				<p>&nbsp;</p>
+			</div>
+			<h3 class="title">Result:</h3>
+			<div id="exampleDiv3"></div>
+		</div>
+	</div>
+
+</body>
+</html>
